@@ -1,6 +1,6 @@
 .todo-container {
     display: flex;
-    justify-content: space-between;
-    gap: 20px
-    ;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
 }

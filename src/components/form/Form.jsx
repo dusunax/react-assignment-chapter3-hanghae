@@ -7,8 +7,8 @@ export default function MyForm (props){
     return (
         <Form className='mb-4'>
             <div style={{flex: "0 0 auto"}}>
-                <label>
-                    제목
+                <label className='mx-3'>
+                    제목:
                 </label>
                 <input 
                 type="text"
@@ -18,8 +18,8 @@ export default function MyForm (props){
                 />
             </div>
             <div style={{flex: "0 0 auto"}}>
-                <label>
-                    내용
+                <label className='mx-3'>
+                    내용:
                 </label>
                 <input 
                 type="text"
@@ -32,6 +32,7 @@ export default function MyForm (props){
             variant='dark'
             // type="submit"
             onClick={onSubmitHandler}
+            name='btnSubmit'
             >
                 올리기
             </Button>

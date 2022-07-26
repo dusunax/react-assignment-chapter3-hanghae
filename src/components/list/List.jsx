@@ -6,7 +6,7 @@ export default function List(props){
         <div className='todo-container'>
             {props.list.map((e, idx)=>{
                 if(e.id !== 0){
-                    return <Todo key={idx} {...e} />
+                    return <Todo key={idx} {...e} onSubmitHandler={props.onSubmitHandler} />
                 }
             })}
         </div>

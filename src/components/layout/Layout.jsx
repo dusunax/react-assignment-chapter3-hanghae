@@ -11,6 +11,8 @@ export default function Layout(){
     const initialList=[{id: 0, title: "", context: "", isDone: false}]
     const [list, setList]=useState(initialList);
     const [state, setState]=useState({title: "", context: ""});
+    const [Done, setDone]=useState(false);
+
     const onChangeHandler=(e)=>{
         let newState;
         let newValue=e.target.value;
@@ -27,7 +29,7 @@ export default function Layout(){
         }
         setState(newState);
     }
-    const onSubmitHandler=()=>{
+    const onSubmitHandler=(e)=>{
         if(state.title.length===0){
             alert("제목을 입력해주세요.");
             document.querySelector('input[name="title"]').focus();
@@ -35,7 +37,30 @@ export default function Layout(){
             alert("내용을 입력해주세요.");
             document.querySelector('input[name="context"]').focus();
         } else {
-            setList([...list, {...state, id: list.length, isDone: false}]);
+            if(e.target.name === 'btnSubmit'){
+                setList([...list, {...state, id: list.length, isDone: false}]);
+            } else if(e.target.name === 'btnDelete'){
+                const newList = list.filter(x=>{
+                    return (x.id != e.target.value)
+                })
+                setList(newList);
+            } else if(e.target.name === 'btnDone'){
+                const newList = list.map(x=>{
+                    if(x.id == e.target.value && x.isDone == false){
+                        x = {...x, isDone: true}
+                    }
+                    return x;
+                })
+                setList(newList);
+            } else if(e.target.name === 'btnNotDone'){
+                const newList = list.map(x=>{
+                    if(x.id == e.target.value && x.isDone == true){
+                        x = {...x, isDone: false}
+                    }
+                    return x;
+                })
+                setList(newList);
+            }
         }
     }
 

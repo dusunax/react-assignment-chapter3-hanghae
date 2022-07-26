@@ -10,11 +10,19 @@ export default function Todo(props){
             <p className='mb-4'>
                 {props.context}
             </p>
-            <div>
-                <Button variant='outline-dark' className='shadow-sm'>
+            <div className='btn-container'>
+                <Button variant='outline-dark'
+                className='shadow-sm'
+                name='btnDelete'
+                value={props.id}
+                onClick={props.onSubmitHandler}>
                     삭제하기
                 </Button>
-                <Button variant='outline-success' className='shadow-sm'>
+                <Button variant='outline-success'
+                className='shadow-sm'
+                name='btnDone'
+                value={props.id}
+                onClick={props.onSubmitHandler}>
                     완료
                 </Button>
             </div>
