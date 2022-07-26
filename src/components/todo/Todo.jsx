@@ -1,14 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import './style.css'
 
-export default function Todo(){
+export default function Todo(props){
     return (
         <div className='Todo shadow-sm'>
             <h4>
-                리액트 공부하기
+                {props.title}
             </h4>
             <p className='mb-4'>
-                리액트 기초를 공부해봅시다.
+                {props.context}
             </p>
             <div>
                 <Button variant='outline-dark' className='shadow-sm'>

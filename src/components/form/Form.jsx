@@ -2,7 +2,8 @@ import './style.css'
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-export default function MyForm (){
+export default function MyForm (props){
+    const {onChangeHandler, onSubmitHandler}=props;
     return (
         <Form className='mb-4'>
             <div style={{flex: "0 0 auto"}}>
@@ -13,6 +14,7 @@ export default function MyForm (){
                 type="text"
                 style={{width: '160px'}}
                 name="title"
+                onChange={onChangeHandler}
                 />
             </div>
             <div style={{flex: "0 0 auto"}}>
@@ -23,10 +25,14 @@ export default function MyForm (){
                 type="text"
                 style={{width: '160px'}}
                 name="context"
+                onChange={onChangeHandler}
                 />
             </div>
-            <Button variant='dark'
-            type="submit">
+            <Button 
+            variant='dark'
+            // type="submit"
+            onClick={onSubmitHandler}
+            >
                 올리기
             </Button>
         </Form>
