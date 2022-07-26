@@ -4,7 +4,9 @@ import './style.css'
 export default function Todo(props){
     const {done, title, context, id, onSubmitHandler} = props
     return (
-        <div className='Todo shadow-sm'>
+        <div className={
+            done? 'done Todo shadow-sm':'Todo shadow-sm'
+        }>
             <h4>
                 {title}
             </h4>
@@ -24,7 +26,7 @@ export default function Todo(props){
                 name={done?'btnDone':'btnUndone'}
                 value={id}
                 onClick={onSubmitHandler}>
-                    {done?"취소":"완료"}
+                    {done?"완료취소":"완료하기"}
                 </Button>
             </div>
         </div>
