@@ -1,0 +1,16 @@
+.Todo {
+    padding: 20px 30px 25px;
+    border-radius: 0.5em;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Todo button {
+    min-width: 100px;
+    font-size: 14px;
+    margin: 0 6px;
+}
