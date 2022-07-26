@@ -2,28 +2,29 @@ import Button from 'react-bootstrap/Button';
 import './style.css'
 
 export default function Todo(props){
+    const {done, title, context, id, onSubmitHandler} = props
     return (
         <div className='Todo shadow-sm'>
             <h4>
-                {props.title}
+                {title}
             </h4>
             <p className='mb-4'>
-                {props.context}
+                {context}
             </p>
             <div className='btn-container'>
                 <Button variant='outline-dark'
                 className='shadow-sm'
                 name='btnDelete'
-                value={props.id}
-                onClick={props.onSubmitHandler}>
+                value={id}
+                onClick={onSubmitHandler}>
                     삭제하기
                 </Button>
                 <Button variant='outline-success'
                 className='shadow-sm'
-                name='btnDone'
-                value={props.id}
-                onClick={props.onSubmitHandler}>
-                    완료
+                name={done?'btnDone':'btnUndone'}
+                value={id}
+                onClick={onSubmitHandler}>
+                    {done?"취소":"완료"}
                 </Button>
             </div>
         </div>
